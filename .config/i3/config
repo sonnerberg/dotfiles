@@ -13,11 +13,11 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:System San Francisco Display 15, FontAwesome 13
+#font pango:System San Francisco Display 15, FontAwesome 13
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 8
+font pango:DejaVu Sans Mono 8
 
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -95,16 +95,16 @@ bindsym $mod+a focus parent
 bindsym $mod+c focus child
 
 # give workspaces new names
-set $workspace1 "1.  "
-set $workspace2 "2.   "
-set $workspace3 "3.   "
-set $workspace4 "4.   "
-set $workspace5 "5.   "
-set $workspace6 "6.   "
-set $workspace7 "7.  "
-set $workspace8 "8. "
-set $workspace9 "9.     "
-set $workspace10 "10. Misc."
+#set $workspace1 "1.  "
+#set $workspace2 "2.   "
+#set $workspace3 "3.   "
+#set $workspace4 "4.   "
+#set $workspace5 "5.   "
+#set $workspace6 "6.   "
+#set $workspace7 "7.  "
+#set $workspace8 "8. "
+#set $workspace9 "9.     "
+#set $workspace10 "10. Misc."
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $workspace1
@@ -187,8 +187,9 @@ hide_edge_borders both
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3blocks -c ~/.config/i3/i3blocks.conf
-	status_command exec ~/.config/i3/i3status.sh
+#        status_command i3blocks -c ~/.config/i3/i3blocks.conf
+#	status_command exec ~/.config/i3/i3status.sh
+        status_command i3status
         tray_output primary
 	position top
 	colors {
@@ -249,7 +250,7 @@ exec --no-startup-id pactl set-sink-mute 1 1
 # Set background uncomment to change background
 # exec_always feh --bg-center $HOME/Pictures/wallpaper/wqhd/2g1ewcks1stz.jpg
 # exec_always feh --bg-scale $HOME/Pictures/wallpaper/wqhd/825929i61phz.jpg
-exec_always feh --bg-scale $HOME/Pictures/wallpaper/wqhd/bll88si4a8mz.jpg
+#exec_always feh --bg-scale $HOME/Pictures/wallpaper/wqhd/bll88si4a8mz.jpg
 # exec_always feh --bg-center $HOME/Pictures/wallpaper/wqhd/colorful_curves_mi_stock_4k-wide.jpg
 # exec_always feh --bg-center $HOME/Pictures/wallpaper/wqhd/hnv9hg2gvsoz.jpg
 # exec_always feh --bg-center $HOME/Pictures/wallpaper/wqhd/srkonxspl1pz.jpg
@@ -274,15 +275,15 @@ assign [class="jetbrains-idea-ce"] $workspace3
 assign [class="osxmanager"] $workspace10
 assign [class="package"] $workspace10
 # automatically start programs
-exec firefox
+#exec firefox
 # exec i3-sensible-terminal 
-exec i3-sensible-terminal 
-# exec parrot_zik_tray
-exec telegram
-exec whatsie
-exec compton -f -D 5
-exec rhythmbox
-exec thunar
+#exec i3-sensible-terminal 
+## exec parrot_zik_tray
+#exec telegram
+#exec whatsie
+#exec compton -f -D 5
+#exec rhythmbox
+#exec thunar
 # exec google-play-music-desktop-player
 
 # Create a sysmenu for restarting, logging out, powering down and so on
@@ -338,7 +339,7 @@ bindsym $mod+Tab exec i3-alt-tab --next
 bindsym $mod+Shift+Tab exec i3-alt-tab --prev
 
 # Adjust for wqhd
-exec xrandr --dpi 125
+#exec xrandr --dpi 125
 
 # Disable mouse focus
 focus_follows_mouse no
