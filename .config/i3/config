@@ -189,7 +189,8 @@ hide_edge_borders both
 bar {
 #        status_command i3blocks -c ~/.config/i3/i3blocks.conf
 #	status_command exec ~/.config/i3/i3status.sh
-        status_command i3status
+        #status_command i3status
+        status_command py3status -c ~/.i3/i3status.conf
         strip_workspace_numbers yes
         tray_output primary
 	position top
