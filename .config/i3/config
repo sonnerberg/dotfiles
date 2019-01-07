@@ -95,16 +95,16 @@ bindsym $mod+a focus parent
 bindsym $mod+c focus child
 
 # give workspaces new names
-#set $workspace1 "1.  "
-#set $workspace2 "2.   "
-#set $workspace3 "3.   "
-#set $workspace4 "4.   "
-#set $workspace5 "5.   "
-#set $workspace6 "6.   "
-#set $workspace7 "7.  "
-#set $workspace8 "8. "
-#set $workspace9 "9.     "
-#set $workspace10 "10. Misc."
+set $workspace1 "1  "
+set $workspace2 "2   "
+set $workspace3 "3   "
+set $workspace4 "4   "
+set $workspace5 "5   "
+set $workspace6 "6   "
+set $workspace7 "7   "
+set $workspace8 "8  "
+set $workspace9 "9     "
+set $workspace10 "10 Misc."
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $workspace1
@@ -177,7 +177,7 @@ set $urgent-bg-color     #E53935
 client.focused          $bg-color           $bg-color          $text-color          #00ff00
 client.unfocused        $iancative-bg-color $inactive-bg-color $inactive-text-color #00ff00
 client.focused_inactive $iancative-bg-color $inactive-bg-color $inactive-text-color #00ff00
-client.urgent 		$urgent-bg-color    $urgent-bg-color   $text-color          #00ff00
+client.urgent 	    	$urgent-bg-color    $urgent-bg-color   $text-color          #00ff00
 
 # Hide the bar that shows where the next window will open
 hide_edge_borders both
@@ -190,6 +190,7 @@ bar {
 #        status_command i3blocks -c ~/.config/i3/i3blocks.conf
 #	status_command exec ~/.config/i3/i3status.sh
         status_command i3status
+        strip_workspace_numbers yes
         tray_output primary
 	position top
 	colors {
@@ -201,7 +202,6 @@ bar {
 		urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
 	}
 }
-
 
 # start passmenu
 bindsym $mod+p exec passmenu -l 5
@@ -342,7 +342,7 @@ mode $rhythmboxmenu {
 
 
 # Use git-aware terminal
-exec export PS1="\${debian_chroot:+(\$debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\] \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\$ "
+# exec export PS1="\${debian_chroot:+(\$debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\] \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\$ "
 
 # i3-alt-tab
 bindsym $mod+Tab exec i3-alt-tab --next
@@ -361,7 +361,7 @@ focus_follows_mouse no
 for_window [class="^.*"] border pixel 3
 
 # Smart Gaps
-smart_gaps on
+#smart_gaps on
 
 # Smart Borders
 smart_borders on
