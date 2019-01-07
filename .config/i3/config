@@ -354,6 +354,7 @@ bindsym $mod+Shift+Tab exec i3-alt-tab --prev
 # Disable mouse focus
 focus_follows_mouse no
 
+
 ### i3-gaps stuff ###
 
 # Necessary for i3-gaps to work properly (pixel can be any value)
