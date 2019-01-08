@@ -264,6 +264,7 @@ exec --no-startup-id pactl set-sink-mute 1 1
 assign [class="Rhythmbox"] $workspace5
 assign [class="Gnome-terminal"] $workspace1
 assign [class="Firefox"] $workspace2
+assign [class="qutebrowser"] $workspace2
 assign [class="jetbrains-phpstorm"] $workspace3
 assign [class="jetbrains-webstorm"] $workspace3
 assign [class="jetbrains-pycharm"] $workspace3
@@ -277,8 +278,9 @@ assign [class="osxmanager"] $workspace10
 assign [class="package"] $workspace10
 # automatically start programs
 #exec firefox
+exec qutebrowser.sh
 # exec i3-sensible-terminal 
-#exec i3-sensible-terminal 
+exec i3-sensible-terminal 
 ## exec parrot_zik_tray
 #exec telegram
 #exec whatsie
