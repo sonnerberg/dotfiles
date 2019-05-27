@@ -1,4 +1,4 @@
-URxvt.font: xft:SourceCodePro+Powerline+Awesome Regular:size=18
+URxvt.font: xft:SourceCodePro+Powerline+Awesome Regular:size=18, xft: siji:pixelsize=16:style=Regular:antiaalias=true
 URxvt.letterSpace: -2
 URxvt.cursorBlink: 1
 *background:   [97]#282a36
@@ -21,4 +21,3 @@ URxvt.cursorBlink: 1
 *color14:     #9aedfe
 *color7:      #eff0eb
 *color15:     #eff0eb
-
