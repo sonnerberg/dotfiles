@@ -1,11 +1,11 @@
 # This is Git's per-user configuration file.
 [user]
 # Please adapt and uncomment the following lines:
-	name = Richard Nilsson
-	email = 31686265+RichardNilsson@users.noreply.github.com
-	signingkey = CACA24436A1A4527
-[core]
-	editor = code --wait
+	name = Richard Sönnerberg
+        email = 31686265+sonnerberg@users.noreply.github.com
+	signingkey = BF5992C942540FF6
+#[core]
+        #editor = code --wait
 
 [commit]
 	gpgsign = true
