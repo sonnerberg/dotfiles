@@ -110,8 +110,8 @@ bind z resize-pane -Z
 bind C-a send-prefix
 
 # Splitting panes with | and -
-bind | split-window -h \; display "Splitting horizontally!"
-bind - split-window -v \; display "Splitting vertically!"
+bind | split-window -h -c "#{pane_current_path}" \; display "Splitting horizontally!"
+bind - split-window -v -c "#{pane_current_path}" \; display "Splitting vertically!"
 
 # Moving between panes with Prefix h,j,k,l
 bind h select-pane -L \; display "Selecting pane to the left!"
@@ -189,8 +189,9 @@ bind C-c run "tmux save-buffer - | xclip -i -sel clipboard > /dev/null"
 # Change shell to use Athame
 # set -g default-shell "$HOME"/local/bin/bash
 # Change shell to use zsh
-set -g default-shell /bin/zsh
+# set -g default-shell /bin/zsh
 
 # Fix cursor changes in vi mode for zsh
 set -as terminal-overrides ',*:Ss=\E[%p1%d q:Se=\E[2 q'
 
+set-option -g focus-events on
