@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-xargs sudo apt -y install < ../apt
+xargs sudo apt -y install < "$HOME/.config/yadm/apt"
