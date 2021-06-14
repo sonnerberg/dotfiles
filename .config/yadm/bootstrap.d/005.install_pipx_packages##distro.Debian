@@ -1,0 +1,2 @@
+#/usr/bin/env bash
+xargs pipx install < "$HOME/.config/yadm/pipx"
