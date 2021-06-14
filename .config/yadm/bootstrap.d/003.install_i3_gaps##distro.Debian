@@ -1,31 +1,31 @@
 #/usr/bin/env bash
 # https://gist.github.com/marjacob/7bbfc44af9bc53606343908f6c48eb97
 # Install the base system
-sudo apt install -y autoconf build-essential git stow tmux tree vim-nox \
+sudo apt install -y autoconf build-essential git stow tmux tree vim-nox 
 # Add backports
-&& echo "deb http://ftp.debian.org/debian stretch-backports main" > /etc/apt/sources.list.d/backports.list \
-&& sudo apt update \
+echo "deb http://ftp.debian.org/debian stretch-backports main" > /etc/apt/sources.list.d/backports.list
+sudo apt update
 # i3-gaps
 # Install dependencies
-&& sudo apt install -y libev-dev libpango1.0-dev libstartup-notification0-dev libxcb-cursor-dev libxcb-icccm4-dev libxcb-keysyms1-dev libxcb-randr0-dev libxcb-util0-dev libxcb-xinerama0-dev libxcb-xkb-dev libxcb-xrm-dev libxcb-xrm0 libxcb1-dev libxkbcommon-dev libxkbcommon-x11-dev libyajl-dev xcb \
+sudo apt install -y libev-dev libpango1.0-dev libstartup-notification0-dev libxcb-cursor-dev libxcb-icccm4-dev libxcb-keysyms1-dev libxcb-randr0-dev libxcb-util0-dev libxcb-xinerama0-dev libxcb-xkb-dev libxcb-xrm-dev libxcb-xrm0 libxcb1-dev libxkbcommon-dev libxkbcommon-x11-dev libyajl-dev xcb
 # Clone the repository
-&& cd /usr/local/src \
-&& git clone https://github.com/Airblader/i3 i3-gaps \
-&& cd i3-gaps \
+cd /usr/local/src
+git clone https://github.com/Airblader/i3 i3-gaps
+cd i3-gaps
 # Determine the short commit hash
-&& hash=$(git rev-parse --short HEAD) \
+hash=$(git rev-parse --short HEAD)
 # Build the source
-&& autoreconf --force --install \
-&& mkdir build && cd "$_" \
-&& ../configure --prefix=/usr/local --sysconfdir=/etc --disable-sanitizers \
-&& make PREFIX=/usr/local \
-&& make install prefix=/usr/local/stow/i3-gaps-$(hash) \
+autoreconf --force --install
+mkdir build && cd "$_"
+../configure --prefix=/usr/local --sysconfdir=/etc --disable-sanitizers
+make PREFIX=/usr/local
+make install prefix=/usr/local/stow/i3-gaps-$(hash)
 # Set permissions
-&& find /usr/local/stow/i3-gaps-$(hash) -type d -exec chmod 755 {} \; \
-&& find /usr/local/stow/i3-gaps-$(hash) -type f -exec chmod 644 {} \; \
-&& chmod -R 755 /usr/local/stow/i3-gaps-$(hash)/bin \
+find /usr/local/stow/i3-gaps-$(hash) -type d -exec chmod 755 {} \;
+find /usr/local/stow/i3-gaps-$(hash) -type f -exec chmod 644 {} \;
+chmod -R 755 /usr/local/stow/i3-gaps-$(hash)/bin
 # Install symbolic links
-&& cd /usr/local/stow \
-&& stow i3-gaps-$(hash) \
+cd /usr/local/stow
+stow i3-gaps-$(hash)
 # Install extras
-&& sudo apt install -y -t stretch-backports feh i3blocks i3lock i3status lightdm sakura suckless-tools xorg
+sudo apt install -y -t stretch-backports feh i3blocks i3lock i3status lightdm sakura suckless-tools xorg
