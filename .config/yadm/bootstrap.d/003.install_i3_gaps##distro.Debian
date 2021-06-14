@@ -21,9 +21,9 @@ mkdir build && cd "$_"
 make PREFIX=/usr/local
 make install prefix=/usr/local/stow/i3-gaps-$(hash)
 # Set permissions
-find /usr/local/stow/i3-gaps-$(hash) -type d -exec chmod 755 {} \;
-find /usr/local/stow/i3-gaps-$(hash) -type f -exec chmod 644 {} \;
-chmod -R 755 /usr/local/stow/i3-gaps-$(hash)/bin
+find /usr/local/stow/i3-gaps-$(hash) -type d -exec sudo chmod 755 {} \;
+find /usr/local/stow/i3-gaps-$(hash) -type f -exec sudo chmod 644 {} \;
+sudo chmod -R 755 /usr/local/stow/i3-gaps-$(hash)/bin
 # Install symbolic links
 cd /usr/local/stow
 stow i3-gaps-$(hash)
