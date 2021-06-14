@@ -19,4 +19,4 @@ sudo ninja install
 
 echo "deb http://deb.debian.org/debian buster-backports main" | sudo tee -a /etc/apt/sources.list.d/buster-backports.list
 sudo apt update
-sudo apt -t buster-backports install polybar
+sudo apt -t buster-backports install -y polybar
