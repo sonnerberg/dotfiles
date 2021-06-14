@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 echo 'About to install apt packages. Please provide sudo password.'
 xargs sudo apt -y install < "$HOME/.config/yadm/apt"
-chsh -s $(which zsh)
+sudo chsh -s $(which zsh)
