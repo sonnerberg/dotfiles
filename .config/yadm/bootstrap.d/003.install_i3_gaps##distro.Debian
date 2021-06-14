@@ -15,4 +15,8 @@ ninja
 
 sudo ninja install
 
-sudo apt install -y i3status
+# sudo apt install -y i3status
+
+sudo echo "deb http://deb.debian.org/debian buster-backports main" | tee -a /etc/apt/sources.list.d/buster-backports.list
+sudo apt update
+sudo apt -t buster-backports install polybar
