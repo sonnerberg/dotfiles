@@ -1,1 +1,8 @@
+[ "$HOME/.Xresources" ] && xrdb -merge ~/.Xresources
+
+# Add ~/bin to path if it is present
+if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/bin:$PATH"
+fi
+
 exec i3

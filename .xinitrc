@@ -1,1 +1,0 @@
-.config/yadm/alt/.xinitrc##distro.Debian
