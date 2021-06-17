@@ -115,8 +115,11 @@ setw -g mode-keys vi
 bind C-c "choose-buffer"
 
 # Change shell to use zsh
-if-shell -b '[ "$(uname -s)" = "Linux" ]' \
-"set -g default-shell /bin/zsh"
+if-shell '[ $(uname -s) = Linux ]' \
+    'set -g default-shell /bin/zsh'
+    
+
+# if-shell -b '[ $(uname -s) = Linux ]' \
 
 # Fix cursor changes in vi mode for zsh
 set -as terminal-overrides ',*:Ss=\E[%p1%d q:Se=\E[2 q'
