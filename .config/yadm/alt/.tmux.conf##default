@@ -118,6 +118,9 @@ bind C-c "choose-buffer"
 if-shell '[ $(uname -s) = Linux ]' \
     'set -g default-shell /bin/zsh'
     
+if-shell '[ $(uname -s) = FreeBSD ]' \
+    'set -g default-shell /usr/local/bin/zsh'
+    
 
 # if-shell -b '[ $(uname -s) = Linux ]' \
 
