@@ -21,7 +21,7 @@ setw -g automatic-rename
 set -s escape-time 1
 
 # Set the base index for sessions to 1 instead of 0
-setw -g session-base-index 1
+# setw -g session-base-index 1
 
 # Set the base index for windows to 1 instead of 0
 set -g base-index 1
@@ -107,7 +107,7 @@ setw -g window-status-activity-style fg=white,bg=colour135 #fg is text-color
 setw -g mode-keys vi
 
 # Capture pane and save to buffer.txt
-bind C-s capture-pane; save-buffer $HOME/buffer.txt
+# bind C-s capture-pane; save-buffer $HOME/buffer.txt
 
 # Copy current buffer to the system clipboard
 # bind C-c run "tmux capture-pane; tmux save-buffer | xclip -i -sel clipboard > /dev/null"
@@ -115,7 +115,8 @@ bind C-s capture-pane; save-buffer $HOME/buffer.txt
 bind C-c "choose-buffer"
 
 # Change shell to use zsh
-set -g default-shell "/usr/bin/env zsh"
+if-shell -b '[ "$(uname -s)" = "Linux" ]' \
+"set -g default-shell /bin/zsh"
 
 # Fix cursor changes in vi mode for zsh
 set -as terminal-overrides ',*:Ss=\E[%p1%d q:Se=\E[2 q'
