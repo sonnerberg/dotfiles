@@ -1,0 +1,19 @@
+# exa aliasing
+alias ls="exa -F"
+alias l="exa -aF"
+alias ll="exa -lghF"
+alias la="exa -laghF"
+alias lt="exa -TF"
+alias lg="exa -laghF --git"
+#alias cat="batcat"
+alias cp="rsync -av --progress"
+alias clipboard="xclip -sel clip"
+
+# Use mycli instead of mysql
+#alias mysql="mycli"
+
+# Make pipsi use python3 for installs
+# alias "pipsi_install"="pipsi install --python /usr/bin/python3.5"
+
+# Add alias for howdoi
+alias h='function hdi(){ howdoi $* -c -n 5; }; hdi'
