@@ -5,7 +5,7 @@ alias ll="exa -lghF"
 alias la="exa -laghF"
 alias lt="exa -TF"
 alias lg="exa -laghF --git"
-#alias cat="batcat"
+alias cat="bat"
 alias cp="rsync -av --progress"
 alias clipboard="xclip -sel clip"
 
