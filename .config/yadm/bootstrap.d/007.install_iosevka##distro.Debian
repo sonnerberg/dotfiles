@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+DOWNLOAD_URL=$(curl --silent 'https://api.github.com/repos/awnion/custom-iosevka-nerd-font/releases/latest' | jq -r ".assets[] | select(.name | test(\".zip\")) | .browser_download_url")
+DOWNLOAD_LOCATION="$HOME/Downloads/iosevka-nerd-font.zip"
+FONT_DIR="$HOME/Downloads/iosevka-nerd-font"
+FONT_INSTALL_DIR="$HOME/.fonts"
+
+mkdir -p "$FONT_DIR"
+mkdir -p "$FONT_INSTALL_DIR"
+
+wget --quiet "$DOWNLOAD_URL" -O "$DOWNLOAD_LOCATION"
+
+unzip "$DOWNLOAD_LOCATION" -d "$FONT_DIR"
+
+cd "$FONT_DIR"
+
+chmod 644 *.ttf
+
+cp *.ttf "$FONT_INSTALL_DIR"
+
