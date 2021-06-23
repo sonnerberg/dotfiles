@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 git clone $(cat "$HOME/.dotfiles/zsh/prompts/clones") "$HOME/.dotfiles/zsh/prompts/alien"
+git -C "$HOME/.dotfiles/zsh/prompts/alien" submodule update --init --recursive
 
