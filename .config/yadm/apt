@@ -9,6 +9,6 @@ jq
 unzip
 fonts-powerline
 kitty
-firefox
+firefox-esr
 dmenu
 exa
