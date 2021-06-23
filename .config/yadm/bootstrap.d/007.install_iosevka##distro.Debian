@@ -15,5 +15,5 @@ cd "$FONT_DIR"
 
 chmod 644 *.ttf
 
-cp *.ttf "$FONT_INSTALL_DIR"
+\cp *.ttf "$FONT_INSTALL_DIR"
 
