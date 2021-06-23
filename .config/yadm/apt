@@ -10,3 +10,5 @@ unzip
 fonts-powerline
 kitty
 firefox
+dmenu
+exa
