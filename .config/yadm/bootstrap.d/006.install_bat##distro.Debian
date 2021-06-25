@@ -1,7 +1,10 @@
 #/usr/bin/env bash
 mkdir -p "$HOME/Downloads"
 DOWNLOAD_URL=$(curl --silent https://api.github.com/repos/sharkdp/bat/releases/latest | jq -r ".assets[] | select(.name | test(\"bat_[0-9].[0-9][0-9][0-9]?.[0-9]_amd64.deb\")) | .browser_download_url")
+DOWNLOAD_LOCATION="$HOME/Downloads/bat.deb"
 
-wget --quiet "$DOWNLOAD_URL" -O "$HOME/Downloads/bat.deb"
+wget --quiet "$DOWNLOAD_URL" -O "$DOWNLOAD_LOCATION"
 
-sudo dpkg -i "$HOME/Downloads/bat.deb"
+sudo dpkg -i "$DOWNLOAD_LOCATION"
+
+rm -r "$DOWNLOAD_LOCATION"
