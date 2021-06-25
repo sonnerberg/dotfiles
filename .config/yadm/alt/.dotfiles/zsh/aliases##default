@@ -8,6 +8,11 @@ alias lg="exa -laghF --git"
 alias cat="bat"
 alias cp="rsync -av --progress"
 alias clipboard="xclip -sel clip"
+alias grep="rg"
+alias du="dust"
+alias find="fd"
+alias cd="z"
+alias top="btm"
 
 # Use mycli instead of mysql
 #alias mysql="mycli"
