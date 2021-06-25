@@ -1,0 +1,2 @@
+#/usr/bin/env bash
+xargs cargo install < "$HOME/.config/yadm/cargo"
