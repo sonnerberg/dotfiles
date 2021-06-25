@@ -1,0 +1,10 @@
+#/usr/bin/env bash
+mkdir -p "$HOME/Downloads"
+DOWNLOAD_URL=$(curl --silent https://api.github.com/repos/sharkdp/fd/releases/latest | jq -r ".assets[] | select(.name | test(\"fd_[0-9].[0-9].[0-9]_amd64.deb\")) | .browser_download_url")
+DOWNLOAD_LOCATION="$HOME/Downloads/fd.deb"
+
+wget --quiet "$DOWNLOAD_URL" -O "$DOWNLOAD_LOCATION"
+
+sudo dpkg -i "$DOWNLOAD_LOCATION"
+
+rm -r "$DOWNLOAD_LOCATION"
