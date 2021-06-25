@@ -15,3 +15,6 @@ exa
 pass
 magic-wormhole
 pavucontrol
+ripgrep
+fzf
+rsync
