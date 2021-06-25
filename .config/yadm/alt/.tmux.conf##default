@@ -2,6 +2,7 @@
 unbind-key C-b
 # Setting the prefix from C-b to `
 set -g prefix `
+set -g prefix2 C-a
 bind ` send-prefix
 
 # Select, copy and paste text in tmux, in a vi-kind of fashion
