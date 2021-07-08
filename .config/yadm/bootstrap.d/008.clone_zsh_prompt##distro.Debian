@@ -1,4 +1,17 @@
 #!/usr/bin/env bash
-git clone $(cat "$HOME/.dotfiles/zsh/prompts/clones") "$HOME/.dotfiles/zsh/prompts/alien"
-git -C "$HOME/.dotfiles/zsh/prompts/alien" submodule update --init --recursive
+for git_repo in $(cat "$HOME/.dotfiles/zsh/prompts/clones")
+do 
+    PROMPT_NAME=$(echo $git_repo | sed 's:.*/::')
+    DESTINATION="$HOME/.dotfiles/zsh/prompts/$PROMPT_NAME"
+    echo "prompt name is $PROMPT_NAME"
+    echo "destination name is $DESTINATION"
+    if  [ ! -d "$DESTINATION" ]; then
+        echo 'Cloning repo'
+        git clone "$git_repo" "$DESTINATION"
+    fi
+    if  [ "$PROMPT_NAME" == 'alien' ]; then
+        echo 'Repo is alien, updating submodules'
+        git -C "$HOME/.dotfiles/zsh/prompts/alien" submodule update --init --recursive
+    fi
+done
 
