@@ -122,3 +122,5 @@ eval "$(pyenv init -)"
 
 eval "$(zoxide init zsh)"
 
+# Set caps to ctrl
+setxkbmap -option caps:ctrl_modifier
