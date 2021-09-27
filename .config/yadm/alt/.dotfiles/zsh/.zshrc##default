@@ -9,6 +9,11 @@ done
 fpath+=("$HOME"/bin/)
 fpath+=("$HOME"/.local/)
 fpath+=("$HOME"/.cargo/bin)
+fpath+=("$HOME"/git_clones/zsh-completions/src)
+fpath+=(/opt/gradle/gradle-6.3/bin)
+fpath+=("$HOME"/Android/Sdk/tools)
+fpath+=("$HOME"/Android/Sdk/platform-tools)
+fpath+=("$HOME"/.config/composer/vendor/bin/)
 
 zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]} l:|=* r:|=*'
 
@@ -125,3 +130,5 @@ eval "$(zoxide init zsh)"
 
 # Set caps to ctrl
 setxkbmap -option caps:ctrl_modifier
+
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
