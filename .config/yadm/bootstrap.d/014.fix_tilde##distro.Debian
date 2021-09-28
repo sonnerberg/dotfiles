@@ -1,0 +1,1 @@
+sudo sd 'less, greater, bar, brokenbar' 'grave, asciitilde, grave, asciitilde' /usr/share/X11/xkb/symbols/pc
