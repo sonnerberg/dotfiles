@@ -1,0 +1,12 @@
+#/usr/bin/env bash
+mkdir -p "$HOME/bin"
+
+DOWNLOAD_URL=$(curl --silent 'https://api.github.com/repos/neovim/neovim/releases/latest' | jq -r ".assets[] | select(.name | test(\"nvim.appimage$\")) | .browser_download_url")
+
+DOWNLOAD_LOCATION="$HOME/bin/nvim"
+
+wget --quiet "$DOWNLOAD_URL" -O "$DOWNLOAD_LOCATION"
+
+chmod u+x "$DOWNLOAD_LOCATION"
+
+sudo update-alternatives --install /usr/bin/editor editor ~/bin/nvim 100
