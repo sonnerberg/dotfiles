@@ -13,7 +13,7 @@ alias du="dust"
 alias find="fd"
 alias cd="z"
 alias top="btm"
-alias sed="sd"
+# alias sed="sd"
 
 # Use mycli instead of mysql
 #alias mysql="mycli"
