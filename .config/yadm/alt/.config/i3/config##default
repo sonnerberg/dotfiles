@@ -416,3 +416,5 @@ for_window [title="video2 - mpv"] sticky enable
 new_window 1pixel
 
 gaps inner 10
+
+bindsym $mod+p exec passmenu -l 5
