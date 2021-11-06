@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+SESSION=$(/usr/bin/find "$HOME" "$HOME/Documents" "$HOME/Documents/dbwebb/kurser" -mindepth 1 -maxdepth 2 -type d | fzf)
+SESSION_NAME="$(basename $(dirname "$SESSION"))/$(basename "$SESSION" | tr . _)"
+# tmux new-window -n "$DIRECTORY"
+
+# if ! tmux list-sessions > /dev/null 2>&1; then
+#     echo 'tmux not running'
+#     tmux new-session -s "$SESSION_NAME" -d
+# else 
+#     echo 'tmux is running'
+# fi
+
+if ! tmux has-session -t "$SESSION_NAME" > /dev/null 2>&1; then
+    # The session $SESSION_NAME does not exist
+    tmux new-session -s "$SESSION_NAME" -c "$SESSION" -d > /dev/null 2>&1
+fi
+
+if ! [ -z "${TMUX}" ]; then
+  tmux switch-client -t "$SESSION_NAME" > /dev/null 2>&1
+else
+  tmux attach -t "$SESSION_NAME" > /dev/null 2>&1
+fi
+
+
+
