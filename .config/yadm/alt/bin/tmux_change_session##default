@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
-TARGET_SESSION=$(tmux list-sessions | cut --delimiter=" " --fields=1 | fzf)
+TARGET_SESSION=$(tmux list-sessions | cut --delimiter=" " --fields=1 | tr --delete ':' | fzf)
 TARGET_WINDOW=$(tmux list-windows -t "$TARGET_SESSION" | cut --delimiter=' ' --fields=1,2 | fzf)
 TARGET_WINDOW_TRIMMED=$(echo $TARGET_WINDOW | cut --delimiter=':' --fields=1)
 
 
 if ! [ -z "${TMUX}" ]; then
-    tmux switch-client -t "$TARGET_SESSION$TARGET_WINDOW_TRIMMED" > /dev/null 2>&1
+    tmux switch-client -t "$TARGET_SESSION:$TARGET_WINDOW_TRIMMED" > /dev/null 2>&1
 else
     tmux attach -t "$TARGET_SESSION$TARGET_WINDOW_TRIMMED" > /dev/null 2>&1
 fi

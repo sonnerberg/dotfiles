@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-SESSION=$(/usr/bin/find "$HOME" "$HOME/Documents" "$HOME/Documents/dbwebb/kurser" -mindepth 1 -maxdepth 2 -type d | fzf)
-SESSION_NAME="$(basename $(dirname "$SESSION"))/$(basename "$SESSION" | tr . _)"
+SESSION=$(/usr/bin/find "$HOME" "$HOME/Documents" "$HOME/Documents/dbwebb/kurser" -maxdepth 3 -type d | sort | uniq | fzf)
+SESSION_NAME="$(basename $(dirname "$SESSION" | tr '.' '_' ))/$(basename "$SESSION" | tr '.' '_') "
 # tmux new-window -n "$DIRECTORY"
 
 # if ! tmux list-sessions > /dev/null 2>&1; then
