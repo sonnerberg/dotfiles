@@ -20,3 +20,5 @@ rsync
 arandr
 pinentry-qt
 zsh-syntax-highlighting
+rofi
+thunar
