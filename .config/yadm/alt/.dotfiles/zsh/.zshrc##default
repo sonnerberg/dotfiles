@@ -132,3 +132,5 @@ eval "$(zoxide init zsh)"
 setxkbmap -option caps:ctrl_modifier
 
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+bindkey -s '^f' "tmux_sessioninzer\n"
