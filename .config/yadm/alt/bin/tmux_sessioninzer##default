@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-SESSION=$(/usr/bin/find "$HOME" "$HOME/Documents" "$HOME/Documents/dbwebb/kurser" -maxdepth 3 -type d | sort | uniq | fzf)
+SESSION=$(/usr/bin/find "$HOME" "$HOME/Documents" "$HOME/Documents/dbwebb/kurser" -maxdepth 2 -type d | sort | uniq | fzf)
 SESSION_NAME="$(basename $(dirname "$SESSION" | tr '.' '_' ))/$(basename "$SESSION" | tr '.' '_') "
 # tmux new-window -n "$DIRECTORY"
 
