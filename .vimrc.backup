@@ -1,20 +1,113 @@
-"                  _                    
-"           __   _(_)_ __ ___  _ __ ___ 
+"                  _
+"           __   _(_)_ __ ___  _ __ ___
 "           \ \ / / | '_ ` _ \| '__/ __|
-"            \ V /| | | | | | | | | (__ 
+"            \ V /| | | | | | | | | (__
 "             \_/ |_|_| |_| |_|_|  \___|
-"                                                      
+"
+" From Practical Vim
+set nocompatible
+filetype plugin on
+set nrformats-=octal            " Only needed for Vim v<8.0
+
 " My own settings
 set nu 					        " Show linenumbers
 set undofile 				    " Maintain undo history between sessions
-set undodir=~/.vim/undodir 		" Use this diretory for storing history between sessions
+set undodir=~/.vim/undodir 		" Use this directory for storing history between
+                                " sessions
 set nohls 				        " Don't highlight selection
 set ic 					        " Incremental highlighting while searching
 set nrformats= 				    " Use decimal numbers instead of octal numbers
-set showcmd				        " Make sure that the operator-pending mode is visible
-set backspace=indent,eol,start	" Erase over multiple lines (backspace on online line to the start and the cursor will go the line above
+set showcmd				        " Make sure that the operator-pending mode is
+                                " visible
+set backspace=indent,eol,start	" Erase over multiple lines (backspace on line
+                                " to the start and the cursor will go the
+                                " line above
 set showmode				    " Ensure that insert mode is visible when active
 set autoindent				    " Autoindent
 set tabstop=4				    " Make a tab 4 spaces
 set expandtab				    " Converts tabs to spaces
 syntax on				        " Syntax highlighting
+set textwidth=80                " Set width of row to 80. Use `gg` to go to top
+                                " of file and then `gqG` to make all lines wrap
+                                " at 80.
+set wildmenu                    " Cycle through options
+set wildmode=full               " zsh style
+set history=200                 " Keep a longer history than the default 20
+                                " commands
+set updatetime=100
+filetype plugin indent on
+" show existing tab with 4 spaces width
+set tabstop=4
+" " when indenting with '>', use 4 spaces width
+set shiftwidth=4
+" " On pressing tab, insert 4 spaces
+set expandtab
+
+" Get YAML support
+au BufNewFile,BufRead *.yaml,*.yml so ~/.vim/yaml.vim
+
+" Automatically install vim-plug
+" (https://github.com/junegunn/vim-plug/wiki/tips#automatic-installation)
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin('~/.vim/plugged')
+
+Plug 'altercation/vim-colors-solarized'
+
+Plug 'bronson/vim-trailing-whitespace'
+
+Plug 'airblade/vim-gitgutter'
+
+Plug 'tpope/vim-fugitive'
+
+" Unite
+"   depend on vimproc
+"   ------------- VERY IMPORTANT ------------
+"   you have to go to .vim/plugin/vimproc.vim and do a ./make
+"   -----------------------------------------
+Plug 'Shougo/vimproc.vim', {'do' : 'make'}
+
+Plug 'Shougo/unite.vim'
+
+Plug 'junegunn/vim-easy-align'
+
+call plug#end()
+
+if (exists('+colorcolumn'))
+    set colorcolumn=80
+    highlight ColorColumn ctermbg=5
+endif
+
+if exists('&signcolumn')  " Vim 7.4.2201
+  set signcolumn=yes
+else
+  let g:gitgutter_sign_column_always = 1
+endif
+
+let g:gitgutter_override_sign_column_highlight = 0
+highlight SignColumn ctermbg=0
+
+" -- solarized personal conf
+" set background=dark
+" try
+"    colorscheme solarized
+" catch
+" endtry
+
+let g:unite_source_history_yank_enable = 1
+try
+  let g:unite_source_rec_async_command='ag --nocolor --nogroup -g ""'
+  call unite#filters#matcher_default#use(['matcher_fuzzy'])
+catch
+endtry
+" search a file in the filetree
+nnoremap <space><space> :split<cr> :<C-u>Unite -start-insert file_rec/async<cr>
+" reset not it is <C-l> normally
+:nnoremap <space>r <Plug>(unite_restart)
+
+" Easy align interactive
+vnoremap <silent> <Enter> :EasyAlign<cr>
