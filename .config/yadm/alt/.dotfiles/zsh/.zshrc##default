@@ -129,6 +129,6 @@ eval "$(pyenv init -)"
 eval "$(zoxide init zsh)"
 
 # Set caps to ctrl
-setxkbmap -option caps:ctrl_modifier
+# setxkbmap -option caps:ctrl_modifier
 
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
