@@ -134,4 +134,4 @@ set-option -g focus-events on
 
 bind-key -r i run-shell "tmux new-window cht.sh"
 bind-key -r s run-shell "tmux split-window -hb bash -c tmux_change_session"
-bind-key -r f run-shell "tmux split-window -hb bash -c tmux_sessioninzer"
+bind-key -r f run-shell "tmux split-window -hb bash -c tmux_sessionizer"
